@@ -1,27 +1,15 @@
 {{ attach_library('training_theme/card-list') }}
 
-<div class="card-list {{ modifier }}" {{ extra_attributes }}>
-  {#
-    Optional: Pass in Drupal specific functionality.
-    Note that this is only needed with nodes and blocks.
-    This isn't needed for Drupal Paragraphs.
-  #}
-  {#
-    {{ title_prefix }}
-    {{ title_suffix }}
-  #}
-
+<section class="card-list{{ modifier ? ' ' ~ modifier }}">
   {% if section_title %}
     {%
       include '@training_theme/heading/heading.twig' with {
-        "title": section_title,
-        "heading_level": 2,
-        "modifier": "card-list__title"
+        "heading": section_title
       } only
     %}
   {% endif %}
 
-  {% if items|length %}
+  {% if items %}
     <ul class="card-list__items">
       {% block card_items %}
         {% for item in items %}
@@ -31,13 +19,10 @@
                 "image": item.image,
                 "caption": item.caption,
                 "eyebrow": item.eyebrow,
-                "title": item.title,
-                "heading_level": item.heading_level,
-                "subhead": item.subhead,
-                "subhead_level": item.subhead_level,
+                "heading": item.heading,
+                "subheading": item.subheading,
                 "text": item.text,
-                "url": item.url,
-                "link_text": item.link_text
+                "cta": item.cta
               } only
             %}
           </li>
@@ -45,4 +30,4 @@
       {% endblock %}
     </ul>
   {% endif %}
-</div>
+</section>
