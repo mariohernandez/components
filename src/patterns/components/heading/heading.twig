@@ -1,12 +1,11 @@
 {{ attach_library('training_theme/heading') }}
 
-{# Defaults to h2 (heading level 2) if no heading level is supplied. #}
-<h{{ heading_level|default('2') }} class="heading {{ modifier }}" {{ extra_attributes }}>
-
-  {% if url %}
-    <a href="{{ url }}" class="heading__link">{{ title }}</a>
+<h{{ heading.heading_level|default('2') }} class="heading{{ heading.modifier ? ' ' ~ heading.modifier }}">
+  {% if heading.url %}
+    <a href="{{ heading.url }}" class="heading__link">
+      {{ heading.title }}
+    </a>
   {% else %}
-    {{ title }}
+    {{ heading.title }}
   {% endif %}
-
-</h{{ heading_level|default('2') }}>
+</h{{ heading.heading_level|default('2') }}>
