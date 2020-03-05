@@ -1,16 +1,6 @@
 {{ attach_library('training_theme/card') }}
 
-<article class="card {{ modifier }}" {{ extra_attributes }}>
-  {#
-    Optional: Pass in Drupal specific functionality.
-    Note that this is only needed with nodes and blocks.
-    This isn't needed for Drupal Paragraphs.
-  #}
-  {#
-    {{ title_prefix }}
-    {{ title_suffix }}
-  #}
-
+<article class="card{{ modifier ? ' ' ~ modifier }}">
   <div class="card__media">
     {% if image %}
       {{ image }}
@@ -32,23 +22,18 @@
       %}
     {% endif %}
 
-    {% if title %}
+    {% if heading %}
       {%
         include '@training_theme/heading/heading.twig' with {
-          "title": title,
-          "heading_level": heading_level,
-          "modifier": "card__title",
-          "url": url
+          "heading": heading
         } only
       %}
     {% endif %}
 
-    {% if subhead %}
+    {% if subheading %}
       {%
         include '@training_theme/heading/heading.twig' with {
-          "title": subhead,
-          "heading_level": subhead_level,
-          "modifier": "card__subhead"
+          "heading": subheading
         } only
       %}
     {% endif %}
@@ -59,8 +44,8 @@
       </div>
     {% endif %}
 
-    {% if link %}
-      <a href="{{ url }}" class="card__link">{{ link_text }}</a>
+    {% if cta.url %}
+      <a href="{{ cta.url }}" class="card__link">{{ cta.text }}</a>
     {% endif %}
   </div>
 

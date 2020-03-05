@@ -3,11 +3,22 @@
   "image": "<img src='https://source.unsplash.com/PhYq704ffdA/640x360' alt='test image' />",
   "caption": "Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper.",
   "eyebrow": "Optional eyebrow",
-  "title": "Phasellus auctor, turpis",
-  "heading_level": "2",
-  "subhead": "Optional Subhead Lorem Ipsum Dolor Sit Amet",
-  "subhead_level": "3",
+  "heading": {
+    "heading_level": "",
+    "modifier": "card__title",
+    "url": "#",
+    "title": "Phasellus auctor, turpis"
+  },
+  "subheading": {
+    "heading_level": "3",
+    "modifier": "card__subheading",
+    "url": "",
+    "title": "Optional Subhead Lorem Ipsum Dolor Sit Amet"
+  },
   "text": "This copy is optional, if nothing is entered nothing will display. Facit nulla in vulputate vulputate aliquam. Commodo esse habent tation nam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed orci lacus.",
-  "url": "#",
-  "link_text": "Optional Link"
+  "cta": {
+    "text": "Link text here",
+    "url": "#"
+  },
+  "modifier": ""
 }
